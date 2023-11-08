@@ -163,16 +163,18 @@ class AccMetric(BaseMetric):
         mse_counter = 0
         mae_counter = 0
         for index in range(len(preds)):
-          mse_metric = mean_squared_error(torch.from_numpy(np.array(preds))[index], torch.from_numpy(np.array(labels))[index])
-          mae_metric = mean_absolute_error(torch.from_numpy(np.array(preds))[index], torch.from_numpy(np.array(labels))[index])
+          pred = torch.from_numpy(np.array(preds))[index] * torch.from_numpy(np.array([50, 15, 35]))
+          label = torch.from_numpy(np.array(labels))[index] * torch.from_numpy(np.array([50, 15, 35]))
+          mse_metric = mean_squared_error(pred, label)
+          mae_metric = mean_absolute_error(pred, label)
           if not torch.isnan(mse_metric):
             mse_counter = mse_counter + 1
-            mse_value = eval_results['MAE'] + mse_metric
+            eval_results['MSE'] = eval_results['MSE'] + mse_metric
           if not torch.isnan(mae_metric):
             mae_counter = mae_counter + 1
-            mae_value = eval_results['MSE'] + mae_metric
-        eval_results['MSE'] = mse_value / mse_counter
-        eval_results['MAE'] = mae_value / mae_counter
+            eval_results['MAE'] = eval_results['MAE'] + mae_metric
+        eval_results['MSE'] = eval_results['MSE'] / mse_counter
+        eval_results['MAE'] = eval_results['MAE'] / mae_counter
         return eval_results
 
 @METRICS.register_module()
