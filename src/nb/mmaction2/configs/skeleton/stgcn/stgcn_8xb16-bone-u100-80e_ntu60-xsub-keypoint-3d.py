@@ -1,7 +1,7 @@
 _base_ = 'stgcn_8xb16-joint-u100-80e_ntu60-xsub-keypoint-3d.py'
 
 dataset_type = 'PoseDataset'
-ann_file = 'data/skeleton/ntu60_3d.pkl'
+ann_file = 'data/skeleton/skeleton_3D.pkl'
 train_pipeline = [
     dict(type='PreNormalize3D'),
     dict(type='GenSkeFeat', dataset='nturgb+d', feats=['b']),

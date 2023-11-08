@@ -25,12 +25,12 @@ def format_label(value: LABEL_TYPE) -> torch.Tensor:
 
     # Handle single number
     if isinstance(value, (torch.Tensor, np.ndarray)) and value.ndim == 0:
-        value = int(value.item())
+        value = float(value.item())
 
     if isinstance(value, np.ndarray):
-        value = torch.from_numpy(value).to(torch.long)
+        value = torch.from_numpy(value).to(torch.float)
     elif isinstance(value, Sequence) and not is_str(value):
-        value = torch.tensor(value).to(torch.long)
+        value = torch.tensor(value).to(torch.float)
     elif isinstance(value, int):
         value = torch.LongTensor([value])
     elif not isinstance(value, torch.Tensor):

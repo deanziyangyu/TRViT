@@ -8,6 +8,7 @@ import mmengine
 import numpy as np
 import torch
 from mmengine.evaluator import BaseMetric
+from torchmetrics.regression import MeanSquaredError, MeanAbsoluteError
 
 from mmaction.evaluation import (get_weighted_score, mean_average_precision,
                                  mean_class_accuracy,
@@ -155,42 +156,24 @@ class AccMetric(BaseMetric):
             and the values are corresponding results.
         """
         eval_results = OrderedDict()
-        metric_options = copy.deepcopy(self.metric_options)
-        for metric in self.metrics:
-            if metric == 'top_k_accuracy':
-                topk = metric_options.setdefault('top_k_accuracy',
-                                                 {}).setdefault(
-                                                     'topk', (1, 5))
-
-                if not isinstance(topk, (int, tuple)):
-                    raise TypeError('topk must be int or tuple of int, '
-                                    f'but got {type(topk)}')
-
-                if isinstance(topk, int):
-                    topk = (topk, )
-
-                top_k_acc = top_k_accuracy(preds, labels, topk)
-                for k, acc in zip(topk, top_k_acc):
-                    eval_results[f'top{k}'] = acc
-
-            if metric == 'mean_class_accuracy':
-                mean1 = mean_class_accuracy(preds, labels)
-                eval_results['mean1'] = mean1
-
-            if metric in [
-                    'mean_average_precision',
-                    'mmit_mean_average_precision',
-            ]:
-                if metric == 'mean_average_precision':
-                    mAP = mean_average_precision(preds, labels)
-                    eval_results['mean_average_precision'] = mAP
-
-                elif metric == 'mmit_mean_average_precision':
-                    mAP = mmit_mean_average_precision(preds, labels)
-                    eval_results['mmit_mean_average_precision'] = mAP
-
+        mean_squared_error = MeanSquaredError()
+        mean_absolute_error = MeanAbsoluteError()
+        eval_results['MAE'] = 0
+        eval_results['MSE'] = 0
+        mse_counter = 0
+        mae_counter = 0
+        for index in range(len(preds)):
+          mse_metric = mean_squared_error(torch.from_numpy(np.array(preds))[index], torch.from_numpy(np.array(labels))[index])
+          mae_metric = mean_absolute_error(torch.from_numpy(np.array(preds))[index], torch.from_numpy(np.array(labels))[index])
+          if not torch.isnan(mse_metric):
+            mse_counter = mse_counter + 1
+            mse_value = eval_results['MAE'] + mse_metric
+          if not torch.isnan(mae_metric):
+            mae_counter = mae_counter + 1
+            mae_value = eval_results['MSE'] + mae_metric
+        eval_results['MSE'] = mse_value / mse_counter
+        eval_results['MAE'] = mae_value / mae_counter
         return eval_results
-
 
 @METRICS.register_module()
 class ConfusionMatrix(BaseMetric):
