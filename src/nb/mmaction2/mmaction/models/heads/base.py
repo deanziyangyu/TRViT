@@ -68,7 +68,7 @@ class BaseHead(BaseModule, metaclass=ABCMeta):
         self.loss_cls = nn.L1Loss()
         self.multi_class = multi_class
         self.label_smooth_eps = label_smooth_eps
-        self.average_clips = average_clips
+        self.average_clips = 'score'
         assert isinstance(topk, (int, tuple))
         if isinstance(topk, int):
             topk = (topk, )
