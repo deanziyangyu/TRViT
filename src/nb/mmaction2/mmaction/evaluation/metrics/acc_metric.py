@@ -163,8 +163,8 @@ class AccMetric(BaseMetric):
         mse_counter = 0
         mae_counter = 0
         for index in range(len(preds)):
-          pred = torch.from_numpy(np.array(preds))[index] * torch.from_numpy(np.array([50, 15, 35]))
-          label = torch.from_numpy(np.array(labels))[index] * torch.from_numpy(np.array([50, 15, 35]))
+          pred = torch.from_numpy(np.array(preds))[index] * torch.from_numpy(np.array([15, 35]))
+          label = torch.from_numpy(np.array(labels))[index] * torch.from_numpy(np.array([15, 35]))
           mse_metric = mean_squared_error(pred, label)
           mae_metric = mean_absolute_error(pred, label)
           if not torch.isnan(mse_metric):
