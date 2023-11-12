@@ -4,10 +4,10 @@ model = dict(
     type='RecognizerGCN',
     backbone=dict(
         type='STGCN', graph_cfg=dict(layout='nturgb+d', mode='stgcn_spatial')),
-    cls_head=dict(type='GCNHead', num_classes=3, in_channels=256))
+    cls_head=dict(type='GCNHead', num_classes=2, in_channels=256))
 
 dataset_type = 'PoseDataset'
-ann_file = 'data/skeleton/skeleton_3D.pkl'
+ann_file = 'data/skeleton/skeleton_3D_two_label.pkl'
 train_pipeline = [
     dict(type='PreNormalize3D'),
     dict(type='GenSkeFeat', dataset='nturgb+d', feats=['j']),
