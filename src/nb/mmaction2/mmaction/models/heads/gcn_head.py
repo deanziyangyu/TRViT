@@ -46,6 +46,7 @@ class GCNHead(BaseHead):
 
         self.pool = nn.AdaptiveAvgPool2d(1)
         self.fc = nn.Linear(self.in_channels, self.num_classes)
+        self.sig = nn.Sigmoid()
 
     def forward(self, x: torch.Tensor, **kwargs) -> torch.Tensor:
         """Forward features from the upstream network.
@@ -68,4 +69,5 @@ class GCNHead(BaseHead):
             x = self.dropout(x)
 
         cls_scores = self.fc(x)
+        cls_scores = self.sig(cls_scores)
         return cls_scores
