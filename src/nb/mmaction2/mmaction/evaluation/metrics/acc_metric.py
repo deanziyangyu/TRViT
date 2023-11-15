@@ -8,7 +8,7 @@ import mmengine
 import numpy as np
 import torch
 from mmengine.evaluator import BaseMetric
-from torchmetrics.regression import MeanSquaredError, MeanAbsoluteError
+from torchmetrics.regression import MeanSquaredError, MeanAbsoluteError, MeanAbsolutePercentageError
 
 from mmaction.evaluation import (get_weighted_score, mean_average_precision,
                                  mean_class_accuracy,
@@ -158,23 +158,17 @@ class AccMetric(BaseMetric):
         eval_results = OrderedDict()
         mean_squared_error = MeanSquaredError()
         mean_absolute_error = MeanAbsoluteError()
-        eval_results['MAE'] = 0
-        eval_results['MSE'] = 0
-        mse_counter = 0
-        mae_counter = 0
-        for index in range(len(preds)):
-          pred = torch.from_numpy(np.array(preds))[index] * torch.from_numpy(np.array([50, 15, 35]))
-          label = torch.from_numpy(np.array(labels))[index] * torch.from_numpy(np.array([50, 15, 35]))
-          mse_metric = mean_squared_error(pred, label)
-          mae_metric = mean_absolute_error(pred, label)
-          if not torch.isnan(mse_metric):
-            mse_counter = mse_counter + 1
-            eval_results['MSE'] = eval_results['MSE'] + mse_metric
-          if not torch.isnan(mae_metric):
-            mae_counter = mae_counter + 1
-            eval_results['MAE'] = eval_results['MAE'] + mae_metric
-        eval_results['MSE'] = eval_results['MSE'] / mse_counter
-        eval_results['MAE'] = eval_results['MAE'] / mae_counter
+        mean_abs_percentage_error = MeanAbsolutePercentageError()
+        
+        preds_new = torch.from_numpy(np.array(preds))
+        labels_new = torch.from_numpy(np.array(labels))
+        for index in range(len(labels)):
+          preds_new[index] = preds_new[index] * torch.from_numpy(np.array([15, 35]))
+          labels_new[index] = labels_new[index] * torch.from_numpy(np.array([15, 35]))
+
+        eval_results['MSE'] = mean_squared_error(preds_new, labels_new)
+        eval_results['MAE'] = mean_absolute_error(preds_new, labels_new)
+        eval_results['MAPE'] = mean_abs_percentage_error(preds_new, labels_new)
         return eval_results
 
 @METRICS.register_module()
