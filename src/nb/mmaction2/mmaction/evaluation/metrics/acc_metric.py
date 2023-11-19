@@ -166,9 +166,13 @@ class AccMetric(BaseMetric):
           preds_new[index] = preds_new[index] * torch.from_numpy(np.array([15, 35]))
           labels_new[index] = labels_new[index] * torch.from_numpy(np.array([15, 35]))
 
+        preds_new = preds_new.sum(1)
+        labels_new = labels_new.sum(1)
+
         eval_results['MSE'] = mean_squared_error(preds_new, labels_new)
+        eval_results['RMSE'] = torch.sqrt(eval_results['MSE'])
         eval_results['MAE'] = mean_absolute_error(preds_new, labels_new)
-        eval_results['MAPE'] = mean_abs_percentage_error(preds_new, labels_new)
+        eval_results['MAPE'] = 100 * mean_abs_percentage_error(preds_new, labels_new)
         return eval_results
 
 @METRICS.register_module()

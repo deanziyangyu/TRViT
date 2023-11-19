@@ -11,7 +11,7 @@ model = dict(
     cls_head=dict(type='GCNHead', num_classes=2, in_channels=256))
 
 dataset_type = 'PoseDataset'
-ann_file = 'data/skeleton/skeleton_3D_unfilt.pkl'
+ann_file = 'data/skeleton/skeleton_3D_rep.pkl'
 train_pipeline = [
     dict(type='PreNormalize3D'),
     dict(type='GenSkeFeat', dataset='nturgb+d', feats=['j']),
@@ -41,7 +41,7 @@ test_pipeline = [
 ]
 
 train_dataloader = dict(
-    batch_size=10,
+    batch_size=128,
     num_workers=2,
     persistent_workers=True,
     sampler=dict(type='DefaultSampler', shuffle=True),
@@ -54,7 +54,7 @@ train_dataloader = dict(
             pipeline=train_pipeline,
             split='xsub_train')))
 val_dataloader = dict(
-    batch_size=10,
+    batch_size=128,
     num_workers=2,
     persistent_workers=True,
     sampler=dict(type='DefaultSampler', shuffle=False),
@@ -80,7 +80,7 @@ val_evaluator = [dict(type='AccMetric')]
 test_evaluator = val_evaluator
 
 train_cfg = dict(
-    type='EpochBasedTrainLoop', max_epochs=50, val_begin=1, val_interval=1)
+    type='EpochBasedTrainLoop', max_epochs=100, val_begin=1, val_interval=1)
 val_cfg = dict(type='ValLoop')
 test_cfg = dict(type='TestLoop')
 
@@ -88,7 +88,7 @@ param_scheduler = [
     dict(
         type='CosineAnnealingLR',
         eta_min=0,
-        T_max=16,
+        T_max=100,
         by_epoch=True,
         convert_to_iter_based=True)
 ]
