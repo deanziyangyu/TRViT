@@ -137,7 +137,9 @@ class BaseHead(BaseModule, metaclass=ABCMeta):
                 labels = F.one_hot(labels, num_classes=self.num_classes)
             labels = ((1 - self.label_smooth_eps) * labels +
                       self.label_smooth_eps / self.num_classes)
-
+        
+        cls_scores = cls_scores.sum(1)
+        labels = labels.sum(1)
         loss_cls = self.loss_cls(cls_scores, labels)
         # loss_cls may be dictionary or single tensor
         if isinstance(loss_cls, dict):
