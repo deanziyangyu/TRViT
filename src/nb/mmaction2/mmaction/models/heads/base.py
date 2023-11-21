@@ -65,10 +65,10 @@ class BaseHead(BaseModule, metaclass=ABCMeta):
         super(BaseHead, self).__init__(init_cfg=init_cfg)
         self.num_classes = num_classes
         self.in_channels = in_channels
-        self.loss_cls = nn.L1Loss()
+        self.loss_cls = MODELS.build(loss_cls)
         self.multi_class = multi_class
         self.label_smooth_eps = label_smooth_eps
-        self.average_clips = 'score'
+        self.average_clips = average_clips
         assert isinstance(topk, (int, tuple))
         if isinstance(topk, int):
             topk = (topk, )
@@ -137,9 +137,7 @@ class BaseHead(BaseModule, metaclass=ABCMeta):
                 labels = F.one_hot(labels, num_classes=self.num_classes)
             labels = ((1 - self.label_smooth_eps) * labels +
                       self.label_smooth_eps / self.num_classes)
-        
-        cls_scores = cls_scores.sum(1)
-        labels = labels.sum(1)
+
         loss_cls = self.loss_cls(cls_scores, labels)
         # loss_cls may be dictionary or single tensor
         if isinstance(loss_cls, dict):
