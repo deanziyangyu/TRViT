@@ -8,7 +8,6 @@ import mmengine
 import numpy as np
 import torch
 from mmengine.evaluator import BaseMetric
-from torchmetrics.regression import MeanSquaredError, MeanAbsoluteError, MeanAbsolutePercentageError
 
 from mmaction.evaluation import (get_weighted_score, mean_average_precision,
                                  mean_class_accuracy,
@@ -156,24 +155,65 @@ class AccMetric(BaseMetric):
             and the values are corresponding results.
         """
         eval_results = OrderedDict()
-        mean_squared_error = MeanSquaredError()
-        mean_absolute_error = MeanAbsoluteError()
-        mean_abs_percentage_error = MeanAbsolutePercentageError()
-        
-        preds_new = torch.from_numpy(np.array(preds))
-        labels_new = torch.from_numpy(np.array(labels))
-        for index in range(len(labels)):
-          preds_new[index] = preds_new[index] * torch.from_numpy(np.array([15, 35]))
-          labels_new[index] = labels_new[index] * torch.from_numpy(np.array([15, 35]))
+        metric_options = copy.deepcopy(self.metric_options)
+        for metric in self.metrics:
+            if metric == 'top_k_accuracy':
+                topk = metric_options.setdefault('top_k_accuracy',
+                                                 {}).setdefault(
+                                                     'topk', (1, 5))
 
-        preds_new = preds_new.sum(1)
-        labels_new = labels_new.sum(1)
+                if not isinstance(topk, (int, tuple)):
+                    raise TypeError('topk must be int or tuple of int, '
+                                    f'but got {type(topk)}')
 
-        eval_results['MSE'] = mean_squared_error(preds_new, labels_new)
-        eval_results['RMSE'] = torch.sqrt(eval_results['MSE'])
-        eval_results['MAE'] = mean_absolute_error(preds_new, labels_new)
-        eval_results['MAPE'] = 100 * mean_abs_percentage_error(preds_new, labels_new)
+                if isinstance(topk, int):
+                    topk = (topk, )
+
+                top_k_acc = top_k_accuracy(preds, labels, topk)
+                for k, acc in zip(topk, top_k_acc):
+                    eval_results[f'top{k}'] = acc
+
+            if metric == 'mean_class_accuracy':
+                mean1 = mean_class_accuracy(preds, labels)
+                eval_results['mean1'] = mean1
+
+            if metric in [
+                    'mean_average_precision',
+                    'mmit_mean_average_precision',
+            ]:
+                if metric == 'mean_average_precision':
+                    mAP = mean_average_precision(preds, labels)
+                    eval_results['mean_average_precision'] = mAP
+
+                elif metric == 'mmit_mean_average_precision':
+                    mAP = mmit_mean_average_precision(preds, labels)
+                    eval_results['mmit_mean_average_precision'] = mAP
+
+        conf_mat = ConfusionMatrix.calculate(preds, labels, num_classes=4)
+        print(conf_mat)
+
+        eval_results['f1_score'] = self.calculate_f1_score(conf_mat)
+
         return eval_results
+    
+    def calculate_f1_score(self, confusion_matrix):
+        # Calculate precision, recall, and F1 score for each class
+        precision = torch.diag(confusion_matrix) / confusion_matrix.sum(dim=0)
+        recall = torch.diag(confusion_matrix) / confusion_matrix.sum(dim=1)
+
+        # Handle cases where precision or recall is zero to avoid division by zero
+        precision[torch.isnan(precision)] = 0
+        recall[torch.isnan(recall)] = 0
+
+        # Calculate F1 score
+        f1 = 2 * (precision * recall) / (precision + recall)
+        f1[torch.isnan(f1)] = 0
+        
+        # Average F1 score across all classes
+        average_f1 = f1.mean().item()
+
+        return average_f1
+
 
 @METRICS.register_module()
 class ConfusionMatrix(BaseMetric):
