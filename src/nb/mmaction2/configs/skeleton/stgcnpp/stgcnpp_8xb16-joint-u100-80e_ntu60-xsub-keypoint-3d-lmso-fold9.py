@@ -97,7 +97,7 @@ optim_wrapper = dict(
     optimizer=dict(
         type='SGD', lr=0.1, momentum=0.9, weight_decay=0.0005, nesterov=True))
 
-default_hooks = dict(checkpoint=dict(interval=1, save_best='f1_score'), logger=dict(interval=100))
+default_hooks = dict(checkpoint=dict(interval=1, save_best='f1_score', rule='greater'), logger=dict(interval=100))
 
 # Default setting for scaling LR automatically
 #   - `enable` means enable scaling LR automatically
