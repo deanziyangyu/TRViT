@@ -192,7 +192,9 @@ class AccMetric(BaseMetric):
         conf_mat = ConfusionMatrix.calculate(preds, labels, num_classes=4)
         print(conf_mat)
 
-        eval_results['f1_score'] = self.calculate_f1_score(conf_mat)
+        accuracy = eval_results['top1']
+        eval_results['top1'] = self.calculate_f1_score(conf_mat)
+        eval_results['f1_score'] = accuracy
 
         return eval_results
     
