@@ -11,7 +11,7 @@ model = dict(
     cls_head=dict(type='GCNHead', num_classes=4, in_channels=256, dropout=0.3))
 
 dataset_type = 'PoseDataset'
-ann_file = 'data/skeleton/skelton_3D_LMSO_1.pkl'
+ann_file = 'data/skeleton/skeleton_3D_LMSO_1.pkl'
 train_pipeline = [
     dict(type='PreNormalize3D'),
     dict(type='GenSkeFeat', dataset='nturgb+d', feats=['jm']),
