@@ -4,13 +4,13 @@ model = dict(
     type='RecognizerGCN',
     backbone=dict(
         type='STGCN', graph_cfg=dict(layout='nturgb+d', mode='stgcn_spatial')),
-    cls_head=dict(type='GCNHead', num_classes=4, in_channels=256, dropout=0.2))
+    cls_head=dict(type='GCNHead', num_classes=4, in_channels=256, dropout=0.3))
 
 dataset_type = 'PoseDataset'
 ann_file = 'data/skeleton/skelton_3D_LMSO_7.pkl'
 train_pipeline = [
     dict(type='PreNormalize3D'),
-    dict(type='GenSkeFeat', dataset='nturgb+d', feats=['j']),
+    dict(type='GenSkeFeat', dataset='nturgb+d', feats=['jm']),
     dict(type='UniformSampleFrames', clip_len=100),
     dict(type='PoseDecode'),
     dict(type='FormatGCNInput', num_person=1),
@@ -18,7 +18,7 @@ train_pipeline = [
 ]
 val_pipeline = [
     dict(type='PreNormalize3D'),
-    dict(type='GenSkeFeat', dataset='nturgb+d', feats=['j']),
+    dict(type='GenSkeFeat', dataset='nturgb+d', feats=['jm']),
     dict(
         type='UniformSampleFrames', clip_len=100, num_clips=1, test_mode=True),
     dict(type='PoseDecode'),
@@ -27,7 +27,7 @@ val_pipeline = [
 ]
 test_pipeline = [
     dict(type='PreNormalize3D'),
-    dict(type='GenSkeFeat', dataset='nturgb+d', feats=['j']),
+    dict(type='GenSkeFeat', dataset='nturgb+d', feats=['jm']),
     dict(
         type='UniformSampleFrames', clip_len=100, num_clips=10,
         test_mode=True),
@@ -50,7 +50,7 @@ train_dataloader = dict(
             pipeline=train_pipeline,
             split='xsub_train')))
 val_dataloader = dict(
-    batch_size=128,
+    batch_size=64,
     num_workers=2,
     persistent_workers=True,
     sampler=dict(type='DefaultSampler', shuffle=False),
@@ -93,7 +93,7 @@ optim_wrapper = dict(
     optimizer=dict(
         type='SGD', lr=0.1, momentum=0.9, weight_decay=0.0005, nesterov=True))
 
-default_hooks = dict(checkpoint=dict(interval=1), logger=dict(interval=100))
+default_hooks = dict(checkpoint=dict(interval=1, save_best='f1_score'), logger=dict(interval=100))
 
 # Default setting for scaling LR automatically
 #   - `enable` means enable scaling LR automatically
