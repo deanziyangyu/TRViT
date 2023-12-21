@@ -1,0 +1,53 @@
+{
+    "name": "Lifting of the arms",
+    "number": "1",
+    "stages": [
+        {
+            "name": "INITIAL STAGE",
+            "description": "The subject holds a bar with both hands and with arms extended along the body, slightly apart."
+        },
+        {
+            "name": "TERMINAL STAGE",
+            "description": "The subject has to raise the arms above the head, keeping the elbows in extension in order to stretch the trunk muscles."
+        },
+        {
+            "name": "RECOVERY STAGE",
+            "description": "Subject goes back to starting position."
+        }
+    ],
+    "requirement": "The feet must always be on the ground, slightly apart, with the knees slightly flexed. The subject must avoid anterior or posterior pelvic tilt.",
+    "param_to_maximize": [
+        {
+            "name": "raise angles, both arms",
+            "type": "angles",
+            "description": "angle between left/right arm and torso in the sagittal plane"
+        }
+    ],
+    "param_to_maintain": [
+        {
+            "name": "extension angles, both elbows",
+            "type": "angles",
+            "description": "Equal and Constant Extension angles of both elbows"
+        },
+        {
+            "name": "extension angles, both knees",
+            "type": "angles",
+            "description": "Equal and Constant Extension angles of both knees"
+        },
+        {
+            "name": "extension angles, both knees",
+            "type": "angles",
+            "description": "Equal and Constant Extension angles of both knees"
+        },
+        {
+            "name": "distance, between hand tips",
+            "type": "distance",
+            "description": "Constant distance between hand tips"
+        },
+        {
+            "name": "distance, between shoulders",
+            "type": "distance",
+            "description": "Constant distance between shoulders"
+        }
+    ]
+}

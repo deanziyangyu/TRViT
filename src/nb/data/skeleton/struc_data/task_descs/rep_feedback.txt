@@ -1,0 +1,12 @@
+For this task you are given the following inputs:
+1. A structured description of the current exercise in json (`exercise_desc`). This contains:\
+    a. exercise name and number;\
+    b. description of the 3 stages of the exercise (INITIAL STAGE/TERMINAL STAGE/RECOVER STAGE);\
+    c. Overall Requirement of the Exersise;\
+    d. param_to_maximize: Parameter to maximize for the given exercise;\
+    e. param_to_maintain: Parameters to maintain during the given exercise.
+2. A structured evaluation in json provided by another assistant whom analyzes the skeleton graphs. (`eval_desc`).
+3. A structured output template in json that provides the clinician and the patient with feedback with various lengths (`feedback_format`).
+Your task is: Use `exercise_desc`, `eval_desc`, give a structured output to json only, using `feedback_format`.
+For the patient, try to give advice on how to improve in a supportive, personal tone. Simplify or refrain from medical terminologies if possible.
+For the clinician, try to give professional/medically relevant information regarding the positives, the negatives, and the potential issues of the exersice.

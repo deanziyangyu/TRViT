@@ -1,0 +1,56 @@
+{
+	"name": "Lateral tilt of the trunk with the arms in extension",
+	"number": "2",
+	"stages":
+	[
+		{
+			"name": "INITIAL STAGE",
+			"description": "The subject has to raise his/her arms above the head with the elbows completely extended and holding a bar with both hands (starting position)."
+		},
+		{
+			"name": "TERMINAL STAGE",
+			"description": "He/she then has to tilt the trunk slowly first to the left and then to the right, keeping it exactly on the frontal plane."
+		},
+		{
+			"name": "RECOVERY STAGE",
+			"description": "After each tilt, the subject returns to the starting position."
+		}	
+	],
+	"requirement": "The movement must be performed so as to avoid bending the trunk backwards or forwards. The feet must always be on the ground, slightly apart, with the knees slightly flexed.",
+	"param_to_maximize": 
+	[
+		{
+			"name": "Right and left angles between imaginary lines formed between hip and shoulder of both sides and the vertical axis in the frontal plane",
+			"type": "angles",
+			"description": "angle between imaginary lines formed between hip and shoulder of both sides and the vertical axis in the frontal plane"
+		}
+	],
+	"param_to_maintain":
+	[
+		{
+			"name": "extension angles, both elbows",
+			"type": "angles",
+			"description": "Equal and Constant Extension angles of both elbows"
+		},
+		{
+			"name": "extension angles, both knees",
+			"type": "angles",
+			"description": "Equal and Constant Extension angles of both knees"
+		},
+		{
+			"name": "extension angles, both knees",
+			"type": "angles",
+			"description": "Equal and Constant Extension angles of both knees"
+		},
+		{
+			"name": "distance, between hand tips",
+			"type": "distance",
+			"description": "Constant distance between hand tips"
+		},
+		{
+			"name": "distance, between shoulders",
+			"type": "distance",
+			"description": "Constant distance between shoulders"
+		}
+	]
+}

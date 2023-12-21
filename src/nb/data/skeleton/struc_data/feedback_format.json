@@ -1,0 +1,8 @@
+{
+	"name": "# Insert exercise name",
+	"number": "# Insert a number from 1 to 5",
+  "feedback_patient_phrase" : "# Give one feedback in 1 to 3 phrases.",
+  "feedback_patient_sentence" : "# Give one feedback in one sentence.",
+  "feedback_patient_paragraph" : "# Insert one feedback in one paragraph, 50 words.",
+  "feedback_clinician_paragraph" : "# Give one feedback in one paragraph with bulletpoints of importance, 100 words."
+}

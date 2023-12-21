@@ -1,0 +1,12 @@
+For this task you are given the following inputs:
+1. A structured description of the current exercise in json (`exercise_desc`). This contains:\
+    a. exercise name and number;\
+    b. description of the 3 stages of the exersise (INITIAL STAGE/TERMINAL STAGE/RECOVER STAGE);\
+    c. Overall Requirement of the Exersise;\
+    d. param_to_maximize: Parameter to maximize for the given exercise;\
+    e. param_to_maintain: Parameters to maintain during the given exercise.
+2. 3 skeleton graphs matching the 3 exercise stages in `exercise_desc` respectively: \
+1st is INITIAL STAGE, 2nd is TERMINAL STAGE, 3nd is RECOVER STAGE.
+3. A structured output template in json that is similar to `exercise_desc` where you add score and comment (`eval_format`).
+4. An evaluation score for the skeleton provided by a custom model from 0 to 3 ('bad'/'Good'/'Very Good'/'Perfect')."
+Your task is: Use `exercise_desc`, the evaluation score, and the 3 skeleton graphs, give a structured output to json using `eval_format`.

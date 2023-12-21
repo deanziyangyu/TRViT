@@ -1,0 +1,61 @@
+{
+	"name": "# Insert exercise name",
+	"number": "# Insert a number from 1 to 5",
+	"stages": 
+	[
+		{
+			"name": "INITIAL STAGE",
+			"score": "# Give a evaluation score from `0` (Bad) to `3` (Perfect) independent to model output",
+			"comment": "# Insert comment on the exercise quality of this stage"
+		},
+		{
+			"name": "TERMINAL STAGE",
+			"score": "# Give a evaluation score from `0` (Bad) to `3` (Perfect) independent to model output",
+			"comment": "# Insert comment on the exercise quality of this stage"
+		},
+		{
+			"name": "RECOVERY STAGE",
+			"score": "# Give a evaluation score from `0` (Bad) to `3` (Perfect) independent to model output",
+			"comment": "# Insert comment on the exercise quality of this stage"
+		}
+	],
+	"requirement_score": "# Give a evaluation score from `0` (Bad) to `3` (Perfect)",
+    "requirement_comment": "# Insert comment on the achievement status of the requirement",
+	"param_to_maximize": 
+	[
+		{
+			"name": "# Insert original name of the param_to_maximize params",
+			"score": "# Give a evaluation score from `0` (Bad) to `3` (Perfect) independent to model output",
+			"comment": "# Insert comment on the achievement status of this parameter"
+		},
+		{
+			"name": "add more parameters here",
+			"score": "...",
+			"comment": "..."
+		},
+		{
+			"name": "add more parameters here",
+			"score": "...",
+			"comment": "..."
+		}
+	],
+	"param_to_maintain":
+	[
+		{
+			"name": "# Insert original name of the param_to_maintain parameter",
+			"score": "# Give a evaluation score from `0` (Bad) to `3` (Perfect) independent to model output",
+			"comment": "# Insert comment on the achievement status of this parameter"
+		},
+		{
+			"name": "add more parameters here",
+			"score": "...",
+			"comment": "..."
+		},
+		{
+			"name": "add more parameters here",
+			"score": "...",
+			"comment": "..."
+		}
+	],
+  "additional_notes": "# Insert any unusal findings, or observations that does not fit the format"
+}
