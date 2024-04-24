@@ -5,16 +5,16 @@ from pathlib import Path
 import json
 
 with open("./struc_data/exec_descs/exec_1_desc.json") as f:
-	exe_1_desc_json = json.load(f)
+	exe_1_desc_json = json.dumps(json.load(f))
 
 with open("./struc_data/exec_descs/exec_2_desc.json") as f:
-	exe_2_desc_json = json.load(f)
+	exe_2_desc_json = json.dumps(json.load(f))
 
 with open("./struc_data/eval_format.json") as f:
-	eval_format = json.load(f)
+	eval_format = json.dumps(json.load(f))
 
 with open("./struc_data/feedback_format.json") as f:
-	feedback_format = json.load(f)
+	feedback_format_json = json.dumps(json.load(f))
 
 user_intro = "I am a rehabilitation clinician and I need your help giving me structrual information regarding the skeleton graph. \
     Let me give you some background info on the skeleton."
@@ -63,19 +63,26 @@ stage_1_b64 = image_to_base64("./store/NE_ID5_Es2_7_s=0/0005.png")
 stage_2_b64 = image_to_base64("./store/NE_ID5_Es2_7_s=0/0055.png")
 stage_3_b64 = image_to_base64("./store/NE_ID5_Es2_7_s=0/0085.png")
 
+use_oai_llm = False
 
-key = '' # add your Open AI Key Here
-client = OpenAI(
-    api_key=key,
-)
-
+if use_oai_llm:
+	key = '' # add your Open AI Key Here
+	client = OpenAI(
+		api_key=key,
+	)
+else:
+	key = 'sk-xxx'
+	client = OpenAI(
+		base_url='http://192.168.181.108:8080/v1',
+		api_key=key,
+	)
 
 task = 1
-score = 0
+score = 2
 
 if task == 0:
 	response = client.chat.completions.create(
-	model="gpt-4-1106-preview",
+	model="gpt-4",
 	messages=[
 		{"role": "system", "content": "You are an AI assistant that give movement feedback to patient doing rehabilitation exercises \
 		by turning structured data provided by another assistant into verbal suggestions. You can provide a step-by-step reasoning before providing your answer, \
@@ -113,19 +120,19 @@ if task == 0:
 				"type": "text", "text": eval_desc, 
 			},
 			{
-				"type": "text", "text": feedback_format, 
+				"type": "text", "text": feedback_format_json,
 			},
 		],
 		}
 	],
-	#   response_format={"type": "json_object"},
+	response_format={"type": "json_object"},
 	max_tokens=512,
 	)
 
 elif task == 1:
 
 	response = client.chat.completions.create(
-	model="gpt-4-vision-preview",
+	model="gpt-4-turbo-2024-04-09",
 	messages=[
 		{"role": "system", "content": "You are an AI assistant that give movement feedback to patient doing rehabilitation exercises \
 		by analyzing skeleton graphs captured by a camera system with the help of the result from a custom model. You can provide a step-by-step reasoning before providing your answer, \
