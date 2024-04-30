@@ -6,6 +6,11 @@
 *.tif
 *.TIFF
 *.TIF
+*.png
+*.mp4
+*.gif
+
+*.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
