@@ -7,8 +7,10 @@
 *.TIFF
 *.TIF
 *.png
+*.jpg
 *.mp4
 *.gif
+*.txt
 
 *.csv
 
