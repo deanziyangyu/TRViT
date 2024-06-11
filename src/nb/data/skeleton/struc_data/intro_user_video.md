@@ -1,0 +1,1 @@
+I am a rehabilitation clinician and I need your help evaluating patients' performance from image sequences by assigning a score.
