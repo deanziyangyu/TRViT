@@ -3,6 +3,7 @@ import base64
 import mimetypes
 from pathlib import Path
 import json
+from constants import *
 
 with open("./struc_data/exec_descs/exec_1_desc.json") as f:
 	exe_1_desc_json = json.dumps(json.load(f))
@@ -66,7 +67,7 @@ stage_3_b64 = image_to_base64("./store/NE_ID5_Es2_7_s=0/0085.png")
 use_oai_llm = False
 
 if use_oai_llm:
-	key = '' # add your Open AI Key Here
+	key = oai_key # add your Open AI Key in constant.py
 	client = OpenAI(
 		api_key=key,
 	)
