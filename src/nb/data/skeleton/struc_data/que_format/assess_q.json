@@ -1,0 +1,46 @@
+{
+    "questionnaire_description" : "Taking into account the description and aim of the exercise and observing the repetition, answer the questions by assigning the number associated with the answer",
+    "answer_mapping_to_number" :
+    [
+        {
+            "never" : 1,
+            "rarely" : 2,
+            "sometimes" : 3,
+            "often" : 4,
+            "always" : 5
+        }
+    ],
+    "questionnaires" :
+    [
+        {
+            "num" : "1. Is the primary objective of the exercise achieved (in other words, are the parameter to be maximized sufficiently maximized)?"
+        },
+        {
+            "num" : "2. Is the exercise carried out in a constant manner?"
+        },
+        {
+            "num" : "3. Is the amplitude of the movement complete?"
+        },
+        {
+            "num" : "4. Is the posture of the head correct?"
+        },
+        {
+            "num" : "5. Is the posture of the right arm correct?"
+        },
+        {
+            "num" : "6. Is the posture of the left arm correct?"
+        },
+        {
+            "num" : "7. Is the posture of the trunk correct?"
+        },
+        {
+            "num" : "8. Is the posture of the pelvis correct?"
+        },
+        {
+            "num" : "9. Is the posture of the right leg correct?"
+        },
+        {
+            "num" : "10. Is the posture of the left leg correct?"
+        }
+    ]
+}
