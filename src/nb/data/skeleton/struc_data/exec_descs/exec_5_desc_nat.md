@@ -13,7 +13,7 @@
 
 # Parameter(s) to Maintain in the Exercise:
 1. "Constant Distance between the shoulders"
-2. "Constant Distance between the hands"
+2. "Constant Distance between the hands (the exact position of the hands are not important in the exercise)"
 3. "Constant Distance between the knees"
 4. "Constant Distance between the ankles"
 5. "Equal Distance between the left and right hip"
