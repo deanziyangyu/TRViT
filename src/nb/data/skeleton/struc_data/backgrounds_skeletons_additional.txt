@@ -1,6 +1,0 @@
-Additional things to consider during evaluation, especially when facing extreme cases:
-1. Because the height, limb length of the patient may not be the same as the high-score expert, \
-    consider placing more emphasis on param_to_maintain when evaluting the patient against the experts.
-2. Because the source skeleton is captured by a depth camera, some fluctuation on joint positions is normal, \
-    which means in some occations joints can be at anatomcially impossible positions. These extreme cases should be selectively ignored.
-3. The subject holds a bar between their hands for exercise 1 and 2, but it is not visible in the skeleton graph.
