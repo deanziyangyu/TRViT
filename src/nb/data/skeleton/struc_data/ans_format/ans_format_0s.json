@@ -1,0 +1,30 @@
+{   
+    "answers":
+    {
+        "_comment" : "# Likert score from 1 to 5 for the 10 questions. DO NOT include this field in the result.",
+        "1" : "",
+        "2" : "",
+        "3" : "",
+        "4" : "",
+        "5" : "",
+        "6" : "",
+        "7" : "",
+        "8" : "",
+        "9" : "",
+        "10" : ""
+    },
+    "reasoning":
+    {
+        "_comment" : "# Short, one-sentence reasoning for the 10 questions. DO NOT include this field in the result.",
+        "1" : "",
+        "2" : "",
+        "3" : "",
+        "4" : "",
+        "5" : "",
+        "6" : "",
+        "7" : "",
+        "8" : "",
+        "9" : "",
+        "10" : ""
+    }
+}
