@@ -1,46 +1,46 @@
 {
     "questionnaire_description" : "Taking into account the description and aim of the exercise and observing the repetition, answer the questions by assigning the number associated with the answer",
-    "answer_mapping_to_number" :
-    [
-        {
-            "never" : 1,
-            "rarely" : 2,
-            "sometimes" : 3,
-            "often" : 4,
-            "always" : 5
-        }
-    ],
-    "questionnaires" :
-    [
-        {
-            "num" : "1. Is the primary objective of the exercise achieved (in other words, are the parameter to be maximized sufficiently maximized)?"
-        },
-        {
-            "num" : "2. Is the exercise carried out in a constant manner?"
-        },
-        {
-            "num" : "3. Is the amplitude of the movement complete?"
-        },
-        {
-            "num" : "4. Is the posture of the head correct?"
-        },
-        {
-            "num" : "5. Is the posture of the right arm correct?"
-        },
-        {
-            "num" : "6. Is the posture of the left arm correct?"
-        },
-        {
-            "num" : "7. Is the posture of the trunk correct?"
-        },
-        {
-            "num" : "8. Is the posture of the pelvis correct?"
-        },
-        {
-            "num" : "9. Is the posture of the right leg correct?"
-        },
-        {
-            "num" : "10. Is the posture of the left leg correct?"
-        }
-    ]
+    "exercise_name" : "Lifting of the arms",
+    "exercise_stages" :
+    {
+        "stage_1" : "The subject holds a bar with both hands and with arms extended along the body, slightly apart.",
+        "stage_2" : "The subject must raise their arms above the head and as high as possible, keeping the elbows in extension in order to stretch the trunk muscles.",
+        "stage_3" : "Subject lowers the arm to go back to starting position."
+    },
+    "body segment terminology" :
+    {
+        "arm raise angle" : "angle between the arm and torso in the sagittal plane for each arm",
+        "elbow extension angle" : "angle between the upper arm and forearm for each arm",
+        "knee extension angle" : "angle between the thigh and the calf for each leg",
+        "hands distance" : "distance between the tips of the hands",
+        "ankle distance" : "distance between the ankles",
+        "hip angle" : "angle between the thigh and the torso in the frontal plane for each leg"
+    },
+    "PO_questions" :
+    {
+        "x" : "Is the left arm raise angle maximized?",
+        "y" : "Is the the right arm raise angle maximized?",
+        "1" : "Are the metrics in the above 2 questions achieved in the exercise?",
+        "2" : "Is the exercise carried out in a constant manner throughout? Is rise time equal to fall time?",
+        "3" : "Is the amplitude of the movement complete in the exercise? Is the amplitude maximized at the middle frame?"
+    },
+    "CF_questions" :
+    {
+        "_comment" : "# Default answer for questions a to h should be 2. DO NOT include this field in the result.",
+        "a" : "Is the hands distance constant in all 5 frames?",
+        "b" : "Is the ankle distance constant in all 5 frames?",
+        "c" : "Are the elbow extension angles symmetrical and constant across both arms in all 5 frames?",
+        "d" : "Are the knee extension angles symmetrical and constant across both legs in all 5 frames?",
+        "e" : "Is the frontal area enclosed by left shoulder, right shoulder, left hip, and right hip constant in ALL 5 frames?",
+        "f" : "Are the hip angles symmetrical and constant across both legs in all 5 frames?",
+        "g" : "Are the feet on the ground, slightly apart, with the knees slightly flexed in all 5 frames?",
+        "h" : "Is subject free of ANY anterior or posterior pelvic tilt in all 5 frames?",
+        "4" : "Based on your answer for e, is the posture of the head correct?",
+        "5" : "Based on your answer for a and c, is the posture of the right arm correct?",
+        "6" : "Based on your answer for a and c, is the posture of the left arm correct?",
+        "7" : "Based on your answer for e, f, and h, is the posture of the trunk correct?",
+        "8" : "Based on your answer for e, f, and h, is the posture of the pelvis correct?",
+        "9" : "Based on your answer for b, d, and g, is the posture of the right leg correct?",
+        "10" : "Based on your answer for b, d, and g, is the posture of the left leg correct?"
+    }
 }

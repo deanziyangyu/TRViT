@@ -1,28 +1,37 @@
-# Primany Outcome ("PO") and Control Factor ("CF")
-1. The exercise is analyzed in two main metrics: Primany Outcome ("PO") and Control Factor ("CF"), both can be quantitatively discribed by body segments, distances between anatomical landmarks, and relative angles.
-- "PO"s are primary goals of the exercises, and quantitatively the body descriptors that change in order to reach the exercise goal. Typically the goal is achieved by maximization of a body parameter such as maximum knee flexion.
-- "CF"s are physical constraints of the exercises which have to be maintained during the exercise. Typically the constraints are the fixation or alignment of a body segment to anatomical landmarks, such as correct trunk alignment along the sagittal plane.
+1. # Primany Outcome ("PO") and Control Factor ("CF")
+- A Rehablitation Exercise is evaluated using two main metrics: Primary Outcome ("PO") and Control Factor ("CF"). These exercise-specific metrics are quantitatively described by body segments, distances between anatomical landmarks, and relative angles between the segments.
+- Primary Outcomes (PO): These are the primary goals of the exercises and are quantified by body descriptors that change to achieve the exercise goal. Typically, this involves maximizing a body parameter, such as achieving maximum knee flexion.
+- Control Factors (CF): These are physical constraints that must be maintained during the exercise. These constraints often involve the fixation or alignment of a body segment (head/neck, trunk, arms, pelvis, and legs) to anatomical landmarks, such as maintaining correct trunk alignment along the sagittal plane.
 
-# Questionnaire Sheet ("QS")
-2. By answering a 10-question likert questionnaire sheet ("QS"), you will evalute the subjects' exercise accuracy with respect to the "CF"s and "PO"s while performing a repetition. 
-- Question 1 to 3 investigated accuracy with respect to the "PO"s of the exercises.
-- Question 4 to 10 measures how the postures of seven body segments, (head/neck, trunk, arms, pelvis and legs), are maintained during the exercise with respect to the "CF"s.
+2. # About the Questionnaire Sheet ("QS")
+- The "QS" is a Likert questionnaire sheet used to evaluate the subject's exercise accuracy concerning the "CFs" and "POs" during a repetition, which is presented to you as a 5-frame image sequence of the subject ("evaluation sequence").
+- Every question in "QS" is in likert scale from 1 to 5 (1=Never, 2=Rarely, 3=Sometimes, 4=Often, 5=Always).
+- Each "QS" starts with the exercise name and description, including `exercise_stages` which will imform the "PO" metrics, and `body segment terminology` which explain the body parameters in simpler terms.
+- The `PO_questions` section measures the degree of achievement on the exercise goals, corresponding to the "PO" metrics.
+- The `CF_questions` section measures the degree of control on the postures of seven body segments, corresponding to the "CF" metrics.
+- Both sections contain question prefixed with letters (a to z) and numbers (1 to 10):
+    - The a to z lettered questions are quantitative and exercise-specific. Carefully observe the evaluation sequence before answering these questions.
+    - The 1 to 10 numbered questions are qualitatively and exercise-agnostic. Summarize the patient's overall consistency and body segment accuracy based on the lettered questions. Your answer for these questions will be compared to the ground truth.
 
-# Exercise Description ("ED")
-3. A Exercise Description ("ED") will be provided that contains exercise name, description of the exercise in stages, "PO"s, and "CF"s.
-- Exercise repetition(s) which better adhere to the "PO"s and "CF"s in the "ED" should be scored higher, while repetition(s) that deviate from these criteria scored lower.
-- Each "PO" or "CF" entry starts with tags that corresponds to the related questions in "QS". These tags are enclosed by brackets in the ["n,n,..."] format. For example, a "CF" with a tag that says ["4,7"] means this CF is related to question 4 and 7 in the "QS".
+3. # Guidelines for Answering the "QS"
+- Carefully answer each question in the "QS" by providing your level of agreement or disagreement with the statement based on the evaluation sequence in likert scale. Be strict and impartial in your assessment of the subject's exercise accuracy.
+- Answer the `PO_questions` by analyzing the entire movement in the evaluation sequence. Refer to the `exercise_stages` in "QS" to determine if the subject achieves the exercise primary goals. Evaluate the "PO" metrics qualitatively and rigorously with logical reasoning.
+- Answer the `CF_questions` by quantifying and counting the number of frames (out of 5) where maintained of the "CF" is achieved. For example: 5 = Condition maintained in ALL 5 frames; 0 = Condition maintained in NONE of the frames.
+- For you first evaluation, the default answer for the lettered questions is set to 2 to prevent untruthful biasing towards the higher scores. Only answer with higher score if you really believe the subject's accuracy is sufficiently higher than the default answer.
 
-# How to Answer the "QS"
-4. You are to answer each question in the "QS" by providing your level of agreement or disagreement of the statement in the question based on the subject's exercise accuracy in the evaluation sequence. Please provide your answer in likert scale from 1 to 5 (1=Never, 2=Rarely, 3=Sometimes, 4=Often, 5=Always) for each question. Answer the question using the below techniques:
-- First, looking up the relevant "PO"(s) or "CF"(s) in the "ED" using the aforementioned tags. For example, when answering question 7 in the "QS", look up all "CF" entries in the "ED" that contains the tag ["7"].
-- Evaluate the tagged "PO"s or "CF"s by counting the number of frames in the sequence where the maintainence of these "PO" or "CF" is achieved and use this as the answer. 
-- A score of 5 should represent COMPLETE maintainence with the tagged "PO" or "CF" in the "ED" in all 5 frames in the sequence, while 1 means the subject maintained to the tagged "PO" or "CF" in 0 or 1 frame(s).
-- Because the lack of compliance to the "CF" violates the premise of the exericse, an exercise with low "CF" score shall, acoordingly, have a lower "PO" score.
-- Finally, be strict and impartial to the subject's performance.
+4. # Going Past Your First (Zero-shot) evaluation
+- After your initial unaided evaluation, you will receive the ground truth answers labeled by an expert human clinician and the percentage of over- or underestimation your answer will be against the ground truth.
+- The annotation labels will include the subtotal of numbered questions 1 to 3 in `PO_questions`, the subtotal of numbered questions 4 to 10 in `CF_questions`, and the total combined score.
+- Observe how your answers compare to the ground truth and consider improvements for future evaluations.
+- You will receive 3 additional ground truth sequences with the corresponding "PO" and "CF" scores to aid your understanding.
+- After reviewing this additional data, you may be asked to evaluate more sequences to further test your ability without knowing the answers in advance.
+
+5. # Repeating the Evaluation Cycle
+- Repeat steps 3 and 4 for multiple evaluation cycles.
+- Compare your evaluations with the ground truths, learn from the additional sequences, and aim to improve your accuracy over time.
 
 # Additionals
-- All subjects' faces has been blurred for privacy.
-- Some subjects do not stand facing the camera directly, so counter for perspective shift when answering the questions.
-- In cases where a body segment is not visible in the image due to image cropping or blurring, answer the question using reasoning and the posture of neighboring/connecting body segment. In the `reasoning` field in the response, write "the body segment is not visible".
-- The subject holds a bar between their hands for exercise 1, 2, 3, and 5. Ignore the bar during the evaluation.
+- All subjects' faces are blurred for privacy.
+- Some subjects may not face the camera directly, so account for perspective shifts when answering the questions.
+- If a body segment is not visible due to image cropping or blurring, determine where the segment should be based on the posture of neighboring/connecting body segments. Make a note in the `reasoning` field in your response that the body segment is not visible.
+- The subject holds a bar between their hands for some exercises. Ignore the bar during the evaluation.

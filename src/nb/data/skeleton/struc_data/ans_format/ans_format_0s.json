@@ -1,30 +1,18 @@
 {   
-    "answers":
+    "PO_answers":
     {
-        "_comment" : "# Likert score from 1 to 5 for the 10 questions. DO NOT include this field in the result.",
-        "1" : "",
-        "2" : "",
-        "3" : "",
-        "4" : "",
-        "5" : "",
-        "6" : "",
-        "7" : "",
-        "8" : "",
-        "9" : "",
-        "10" : ""
+        "_comment" : "# Insert the same fields as the `PO_questions` Use Likert score from 1 to 5. DO NOT include this field in the result.",
+        "..." : ""
+    },
+    "CF_answers":
+    {
+        "_comment" : "# Insert the same fields as the `CF_questions`. Use Likert score from 1 to 5. DO NOT include this field in the result.",
+        "..." : ""
     },
     "reasoning":
     {
-        "_comment" : "# Short, one-sentence reasoning for the 10 questions. DO NOT include this field in the result.",
+        "_comment" : "# Very short reasoning in phrases, ONLY for questions 1 to 10 from `PO_answers` and `CF_answers`. DO NOT include this field in the result.",
         "1" : "",
-        "2" : "",
-        "3" : "",
-        "4" : "",
-        "5" : "",
-        "6" : "",
-        "7" : "",
-        "8" : "",
-        "9" : "",
-        "10" : ""
+        "..." : ""
     }
 }
