@@ -1,0 +1,51 @@
+{
+    "questionnaire_description" : "Taking into account the description and aim of the exercise and observing the repetition, answer the questions by assigning the number associated with the answer",
+    "exercise_name" : "Lateral tilt of the trunk with the arms in extension",
+    "exercise_stages" :
+    {
+        "stage_1" : "The subject has to raise his/her arms above the head with the elbows completely extended and holding a bar with both hands (starting position)",
+        "stage_2" : "The subject then has to tilt the trunk slowly first to the left and then to the right, keeping it exactly on the frontal plane.",
+        "stage_3" : "After each tilt, the subject returns to the starting position."
+    },
+    "body segment terminology" :
+    {
+        "trunk tilt angle" : "The angle between the line fromed between the hip and shoulder and the vertical axis in the frontal plane ",
+        "elbow extension angle" : "angle between the upper arm and forearm for each arm",
+        "knee extension angle" : "angle between the thigh and the calf for each leg",
+        "hands distance" : "distance between the tips of the hands",
+        "shoulder distance" : "distance between the shoulders",
+        "wrist raise distance" : "vertical distance bettwen the wrist and the shoulder for each arm",
+        "hip distance" : "distance between the hips",
+        "pelvis shift" : "traslation of the pelvis in the transverse plane (up, down, left, right)",
+        "hip angle" : "angle between the thigh and the torso in the frontal plane for each leg"
+    },
+    "PO_questions" :
+    {
+        "x" : "Is the trunk tilt angle maximized when the body is tilted to the left?",
+        "y" : "Is the trunk tilt angle maximized when the body is tilted to the right?",
+        "1" : "Are the metrics in the above 2 questions achieved in the exercise?",
+        "2" : "Is the exercise carried out in a constant manner throughout? Is rise time equal to fall time?",
+        "3" : "Is the amplitude of the movement complete in the exercise? Is the amplitude maximized at the middle frame?"
+    },
+    "CF_questions" :
+    {
+        "_comment" : "# Default answer for questions a to h should be 3. DO NOT include this field in the result.",
+        "a" : "Is the hands distance constant in all 5 frames?",
+        "b" : "Is the shoulder distance constant in all 5 frames?",
+        "c" : "Are the elbow extension angles symmetrical and constant across both arms in all 5 frames?",
+        "d" : "Are the knee extension angles symmetrical and constant across both legs in all 5 frames?",
+        "e" : "Are the hip angles symmetrical and constant across both legs in all 5 frames?",
+        "f" : "Are the hip distance constant in all 5 frames?",
+        "g" : "Are the feet on the ground, slightly apart, with the knees slightly flexed in all 5 frames?",
+        "h" : "Is the subject free of ANY forward or backward bending of the trunk?",
+        "i" : "Is the subject free of ANY pelvis shift in all 5 frames?",
+        "j" : "Are the wrist raise distance symmetrical and constant across both arms in all 5 frames?",
+        "4" : "Based on your answer for a and b, is the posture of the head correct?",
+        "5" : "Based on your answer for a, c, and j, is the posture of the right arm correct?",
+        "6" : "Based on your answer for a, c, and j, is the posture of the left arm correct?",
+        "7" : "Based on your answer for e, h, and i, is the posture of the trunk correct?",
+        "8" : "Based on your answer for f, h, and i, is the posture of the pelvis correct?",
+        "9" : "Based on your answer d and g, is the posture of the right leg correct?",
+        "10" : "Based on your answer d and g, is the posture of the left leg correct?"
+    }
+}

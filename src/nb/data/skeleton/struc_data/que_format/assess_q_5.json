@@ -1,0 +1,50 @@
+{
+    "questionnaire_description" : "Taking into account the description and aim of the exercise and observing the repetition, answer the questions by assigning the number associated with the answer",
+    "exercise_name" : "Squatting",
+    "exercise_stages" :
+    {
+        "stage_1" : "The subject holds the bar with the elbow completely extended and with arms aligned to the shoulders, at 90◦ with respect to the trunk.",
+        "stage_2" : "The subject has to flex the knees up to 60 degress /70 degress and then return to the starting position."
+    },
+    "body segment terminology" :
+    {
+        "hands distance" : "distance between the tips of the hands",
+        "shoulder distance" : "distance between the shoulders",
+        "hand-shoulder distance" : "distance between the hand and the shoulder of the same side",
+        "knee distance" : "distance between the knees",
+        "ankle distance" : "distance between the ankles",
+        "torso area" : "the frontal area enclosed by the shoulders and the hips",
+        "transverse shoulder shift" : "The translation of the shoulder in the transverse plane (left, right, up, down)",
+        "hip distance" : "distance between the hips",
+        "sagittal knee angles": "angle between the thigh and the calf for each leg in the sagittal plane"
+    },
+    "PO_questions" :
+    {
+        "x" : "Is the sagittal knee angles maximized for the right leg?",
+        "y" : "Is the sagittal knee angles maximized for the left leg?",
+        "1" : "Are the metrics in the above 2 questions achieved in the exercise?",
+        "2" : "Is the exercise carried out in a constant manner throughout? Is rise time equal to fall time?",
+        "3" : "Is the amplitude of the movement complete in the exercise? Is the amplitude maximized at the middle frame?"
+    },
+    "CF_questions" :
+    {
+        "_comment" : "# Default answer for questions a to h should be 3. DO NOT include this field in the result.",
+        "a" : "Is the hands distance constant in all 5 frames?",
+        "b" : "Is the ankle distance constant in all 5 frames?",
+        "c" : "Is the shoulder distance constant in all 5 frames?",
+        "d" : "Is the knee distance constant in all 5 frames?",
+        "e" : "Are the hip distance constant in all 5 frames?",
+        "f" : "Is the torso area constant in ALL 5 frames?",
+        "g" : "Are the hand-shoulder distance symmetrical and constant on the left and right in all 5 frames?",
+        "h" : "Is the subject free of ANY forward or backward bending of the trunk?",
+        "i" : "Is the body aligned to the sagittal plane in all 5 frames?",
+        "j" : "Is the subject free of ANY transverse shoulder shift in all 5 frames?",
+        "4" : "Based on your answer for c and j, is the posture of the head correct?",
+        "5" : "Based on your answer for a, c, and g, is the posture of the right arm correct?",
+        "6" : "Based on your answer for a, c, and g, is the posture of the left arm correct?",
+        "7" : "Based on your answer for e, f, h, and i, is the posture of the trunk correct?",
+        "8" : "Based on your answer for e, f, h, and j, is the posture of the pelvis correct?",
+        "9" : "Based on your answer for b, d, and g, is the posture of the right leg correct?",
+        "10" : "Based on your answer for b, d, and g, is the posture of the left leg correct?"
+    }
+}

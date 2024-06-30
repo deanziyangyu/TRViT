@@ -1,0 +1,43 @@
+{
+    "questionnaire_description" : "Taking into account the description and aim of the exercise and observing the repetition, answer the questions by assigning the number associated with the answer",
+    "exercise_name" : "Pelvis rotations on the transverse plane",
+    "exercise_stages" :
+    {
+        "stage_1" : "The subject has to stand still with feet slightly apart.",
+        "stage_2" : "Without moving the feet, the subject makes a circular rotation with the pelvis in clockwise direction.",
+        "stage_3" : "Without moving the feet, the subject makes a circular rotation with the pelvis in counter clockwise direction."
+    },
+    "body segment terminology" :
+    {
+        "elbow extension angle" : "angle between the upper arm and forearm for each arm",
+        "transverse spine base shift" : "The translation of the spine base in the transverse plane (front, back, left, right)",
+        "knee extension angle" : "angle between the thigh and the calf for each leg",
+        "shoulder distance" : "distance between the shoulders",
+        "vertical shoulder shift" : "The vertical translation of the shoulder (up, down)",
+        "hip distance" : "distance between the hips"
+    },
+    "PO_questions" :
+    {
+        "x" : "Is the transverse spine base shift maximized during the clockwise rotation?",
+        "y" : "Is the transverse spine base shift maximized during the counterclockwise rotation?",
+        "1" : "Are the metrics in the above 2 questions achieved in the exercise?",
+        "2" : "Is the exercise carried out in a constant manner throughout? Is rise time equal to fall time?",
+        "3" : "Is the amplitude of the movement complete in the exercise? Is the amplitude maximized at the middle frame?"
+    },
+    "CF_questions" :
+    {
+        "_comment" : "# Default answer for questions a to h should be 3. DO NOT include this field in the result.",
+        "a" : "Is the shoulder distance constant in all 5 frames?",
+        "b" : "Is the subjest free of ANY vertical shoulder shift in all 5 frames?",
+        "c" : "Are the elbow extension angles symmetrical and constant across both arms in all 5 frames?",
+        "d" : "Are the knee extension angles symmetrical and constant across both legs in all 5 frames?",
+        "e" : "Are the hip distance constant in all 5 frames?",
+        "4" : "Based on your answer for a and b, is the posture of the head correct?",
+        "5" : "Based on your answer for a, and c, is the posture of the right arm correct?",
+        "6" : "Based on your answer for a, and c, is the posture of the left arm correct?",
+        "7" : "Based on your answer for e, is the posture of the trunk correct?",
+        "8" : "Based on your answer for e, is the posture of the pelvis correct?",
+        "9" : "Based on your answer for d and the evaluation sequence, is the posture of the right leg correct?",
+        "10" : "Based on your answer for d and the evaluation sequence, is the posture of the left leg correct?"
+    }
+}

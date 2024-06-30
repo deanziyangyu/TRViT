@@ -1,0 +1,52 @@
+{
+    "questionnaire_description" : "Taking into account the description and aim of the exercise and observing the repetition, answer the questions by assigning the number associated with the answer",
+    "exercise_name" : "Trunk Rotation",
+    "exercise_stages" :
+    {
+        "stage_1" : "The subject holds the arms parallel, at an angle of ninety degrees with respect to the torso (arms aligned with the shoulders) with the elbows completely extended.",
+        "stage_2" : "The subject then rotates the torso slowly first to the left and afterwards to the right.",
+        "stage_3" : "After rotation to the right, the subject returns to the starting position."
+    },
+    "body segment terminology" :
+    {
+        "horizontal elbow distance" : "The horizontal distance between the elbows",
+        "elbow extension angle" : "angle between the upper arm and forearm for each arm",
+        "shoulder extension angle" : "angle between the shoulder and upper arm for each arm",
+        "knee extension angle" : "angle between the thigh and the calf for each leg",
+        "shoulder distance" : "distance between the shoulders",
+        "wrist raise distance" : "vertical distance bettwen the wrist and the shoulder for each arm",
+        "hip distance" : "distance between the hips",
+        "hip angle" : "angle between the thigh and the torso in the frontal plane for each leg",
+        "hip depth shift" : "up and down translation of the hip"
+    },
+    "PO_questions" :
+    {
+        "x" : "Is the horizontal elbow distance maximized when the arms are rotated to the left?",
+        "y" : "Is the horizontal elbow distance maximized when the arms are rotated to the right?",
+        "1" : "Are the metrics in the above 2 questions achieved in the exercise?",
+        "2" : "Is the exercise carried out in a constant manner throughout? Is rise time equal to fall time?",
+        "3" : "Is the amplitude of the movement complete in the exercise? Is the amplitude maximized at the middle frame?"
+    },
+    "CF_questions" :
+    {
+        "_comment" : "# Default answer for questions a to h should be 3. DO NOT include this field in the result.",
+        "a" : "Is the shoulder distance constant in all 5 frames?",
+        "b" : "Is the shoulder extension angles symmetrical and constant across both arms in all 5 frames?",
+        "c" : "Are the elbow extension angles symmetrical and constant across both arms in all 5 frames?",
+        "d" : "Are the knee extension angles symmetrical and constant across both legs in all 5 frames?",
+        "e" : "Are the hip angles symmetrical and constant across both legs in all 5 frames?",
+        "f" : "Are the hip distance constant in all 5 frames?",
+        "g" : "Are the feet on the ground, slightly apart, with the knees slightly flexed in all 5 frames?",
+        "h" : "Is the subject free of ANY forward or backward bending of the trunk?",
+        "i" : "Is the subject free of ANY pelvis shift in all 5 frames?",
+        "j" : "Is the body aligned to the vertical axis in all 5 frames?",
+        "k" : "Is the subjest free of ANY hip depth shift in all 5 frames?",
+        "4" : "Based on your answer for a and b, is the posture of the head correct?",
+        "5" : "Based on your answer for b, c, and j, is the posture of the right arm correct?",
+        "6" : "Based on your answer for b, c, and j, is the posture of the left arm correct?",
+        "7" : "Based on your answer for e, h, and i, is the posture of the trunk correct?",
+        "8" : "Based on your answer for f, h, and i, is the posture of the pelvis correct?",
+        "9" : "Based on your answer for d, g, and k, is the posture of the right leg correct?",
+        "10" : "Based on your answer for d, g, and k, is the posture of the left leg correct?"
+    }
+}
